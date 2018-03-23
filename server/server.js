@@ -11,7 +11,7 @@ import cors from 'cors';
 mongoose.connect('mongodb://localhost:27017/jwtauth');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 
 
 app.use('/user', User);

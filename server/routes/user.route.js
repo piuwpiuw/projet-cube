@@ -43,7 +43,9 @@ router.post('/signin', function (req, res) {
                         failed: 'Unauthorized'
                     });
                 }
+                
                 if (result) {
+                    console.log(user);
                     const JWTToken = jwt.sign({
                         email: user.email,
                         _id: user._id
@@ -52,7 +54,7 @@ router.post('/signin', function (req, res) {
                         {
                             expiresIn: '1h'
                         });
-                    return res.status(200).json({
+                    return res.status(200).send({
                         success: 'Welcome to the JWT Auth',
                         token: JWTToken
                     });
@@ -74,7 +76,7 @@ router.post('/signin', function (req, res) {
 
 
 
-router.get('/message', function (req, res) {
+router.get('/liste', function (req, res) {
     let token = req.body.token || req.query.token || req.headers.token;
     if (token) {
         jwt.verify(token, 'secret', function (err, decoded) {
