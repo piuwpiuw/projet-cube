@@ -1,10 +1,10 @@
 <template>
 <div class="container pt-5 col-lg-10 rounded-circle " id="bonjour">
     <h1>Sign Up</h1>
-     <input type="text" name="Username" placeholder="Username" v-model="User.email" class="form-control text-center" id="inputEmail">
+     <input type="email" name="Username" placeholder="Email" v-model="User.email" class="form-control text-center" id="inputEmail">
 
      
-     <input type="text" name="Password" placeholder="Password" v-model="User.password" class="form-control text-center" id="inputPassword"></br>
+     <input type="password" name="Password" placeholder="Password" v-model="User.password" class="form-control text-center" id="inputPassword"></br>
 
              
          <button type="submit" name="Signup" class="btn btn-block" @click="addToDb" id="signup">Submit</button></br> 

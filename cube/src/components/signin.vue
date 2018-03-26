@@ -7,10 +7,10 @@
   <h1>Sign In</h1>
          
    
-     <input type="text" name="Username" placeholder="Username" v-model="email" class="form-control text-center" id="inputEmail">
+     <input type="email" name="Username" placeholder="Email" v-model="email" class="form-control text-center" id="inputEmail">
 
      
-     <input type="text" name="Password" placeholder="Password" v-model="password" class="form-control text-center" id="inputPassword"></br>
+     <input type="password" name="Password" placeholder="Password" v-model="password" class="form-control text-center" id="inputPassword"></br>
 
              
          <button v-on:click="rechearchToDb" id="signin">Submit</button></br>
