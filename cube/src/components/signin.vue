@@ -48,7 +48,7 @@ export default {
         .then(res => {
           console.log(res.data.token);
           let token = res.data.token;
-          console.log(token);
+          localStorage.setItem('token', token);
         });
     }
   }

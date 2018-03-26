@@ -1,15 +1,11 @@
 <template>
 
 <div>
-  <ul>
-     <li>
-        <router-link to="/signup">Signup</router-link>
-      </li>
-      <li>
-        <router-link to="/signin">Signin</router-link>
-      </li>
-  </ul>
-	<ul v-for="user in users" :key="user._id">
+  <div style="text-align: right">
+  <router-link to="/signup">Signup</router-link>
+  <router-link to="/signin">Signin</router-link>
+  </div>
+	<ul v-for="user in users" :key="user._id" style="text-align: left">
 		<li>{{ user.email }}</li>
 	</ul>
 </div>
@@ -19,8 +15,6 @@
 <script>
 
 import axios from 'axios';
-import token from './signin.vue';
-console.log(token);
 
 export default {
   name: "liste",
@@ -36,9 +30,11 @@ export default {
 
   methods: {
     fetchItems() {
-      axios.get("http://localhost:7070/user/liste", {headers: token }).then(res => {
+      var token = localStorage.getItem('token');
+      axios.get("http://localhost:7070/user/liste", {headers: {token}}).then(res => {
 		this.users = res.data;
 		console.log(this.users);
+    
       });
     }
   }
