@@ -1,13 +1,21 @@
 <template>
 <div class="container pt-5 col-lg-10 rounded-circle " id="bonjour">
-    
+    <h1>Sign Up</h1>
      <input type="text" name="Username" placeholder="Username" v-model="User.email" class="form-control text-center" id="inputEmail">
 
      
      <input type="text" name="Password" placeholder="Password" v-model="User.password" class="form-control text-center" id="inputPassword"></br>
 
              
-         <button type="submit" name="Signup" class="btn btn-block" @click="addToDb" id="signup">Submit</button></br>       
+         <button type="submit" name="Signup" class="btn btn-block" @click="addToDb" id="signup">Submit</button></br> 
+         <ul>
+       <li>
+        <router-link to="/signin">Signin</router-link>
+      </li>
+      <li>
+        <router-link to="/liste">User list</router-link>     
+      </li>
+      </ul> 
    </div>
 </template>
 

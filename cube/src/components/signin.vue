@@ -4,6 +4,7 @@
 
 
 <div class="container pt-5 col-lg-10 rounded-circle " id="bonjour">
+  <h1>Sign In</h1>
          
    
      <input type="text" name="Username" placeholder="Username" v-model="email" class="form-control text-center" id="inputEmail">
@@ -13,6 +14,14 @@
 
              
          <button v-on:click="rechearchToDb" id="signin">Submit</button></br>
+         <ul>
+      <li>
+        <router-link to="/signup">Signup</router-link>
+      </li>
+      <li>
+        <router-link to="/liste">User list</router-link>
+      </li>
+         </ul>
          
    </div>
 </template>
@@ -39,10 +48,9 @@ export default {
         .then(res => {
           console.log(res.data.token);
           let token = res.data.token;
+          console.log(token);
         });
     }
   }
 };
-
-export {token};
 </script>

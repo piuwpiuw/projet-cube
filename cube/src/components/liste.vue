@@ -1,6 +1,14 @@
 <template>
 
 <div>
+  <ul>
+     <li>
+        <router-link to="/signup">Signup</router-link>
+      </li>
+      <li>
+        <router-link to="/signin">Signin</router-link>
+      </li>
+  </ul>
 	<ul v-for="user in users" :key="user._id">
 		<li>{{ user.email }}</li>
 	</ul>
@@ -12,6 +20,7 @@
 
 import axios from 'axios';
 import token from './signin.vue';
+console.log(token);
 
 export default {
   name: "liste",

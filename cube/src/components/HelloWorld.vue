@@ -4,6 +4,15 @@
     <h2>Essential Links</h2>
     <ul>
       <li>
+        <router-link to="/signup">Signup</router-link>
+      </li>
+      <li>
+        <router-link to="/signin">Signin</router-link>
+      </li>
+      <li>
+        <router-link to="/liste">User list</router-link>
+      </li>
+      <li>
         <a
           href="https://vuejs.org"
           target="_blank"
