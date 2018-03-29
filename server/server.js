@@ -5,7 +5,6 @@ import User from './routes/user.route';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-//cors= new cors;
 
 
 mongoose.connect('mongodb://localhost:27017/jwtauth');

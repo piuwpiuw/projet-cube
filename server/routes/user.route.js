@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 
 let db = mongoose.connect('mongodb://localhost:27017/jwtauth');
 
+
 router.post('/signup', function (req, res) {
     bcrypt.hash(req.body.password, 10, function (err, hash) {
         if (err) {
@@ -14,23 +15,31 @@ router.post('/signup', function (req, res) {
                 error: err
             });
         } else {
-            const user = new User({
-                _id: new mongoose.Types.ObjectId(),
-                email: req.body.email,
-                password: hash
-            });
-            user.save().then(function (result) {
-                console.log(result);
-                res.status(200).json({
-                    success: 'New user has been created !'
-                });
-            }).catch(error => {
-                res.status(500).json({
-                    error: err
-                });
+            User.findOne({ email: req.body.email })
+        .exec()
+        .then(function (user){
+                if (user) {
+                    return res.status(501).json({
+                        err: 'User already exists !'
+                    });
+                }
+                else {
+                    const user = new User({
+                        _id: new mongoose.Types.ObjectId(),
+                        email: req.body.email,
+                        password: hash
+                    });
+                    user.save().then(function (result) {
+                        console.log(result);
+                        res.status(200).json({
+                            success: 'New user has been created !'
+                        });
+                    });
+                }
             });
         }
-    });
+    },
+    )
 });
 
 router.post('/signin', function (req, res) {
@@ -43,7 +52,7 @@ router.post('/signin', function (req, res) {
                         failed: 'Unauthorized'
                     });
                 }
-                
+
                 if (result) {
                     console.log(user);
                     const JWTToken = jwt.sign({
@@ -101,4 +110,5 @@ router.get('/liste', function (req, res) {
     };
 });
 
-module.exports = router;
+export default router;
+
