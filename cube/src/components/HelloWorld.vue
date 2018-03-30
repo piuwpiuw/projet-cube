@@ -4,13 +4,13 @@
     <h2>Essential Links</h2>
     <ul>
       <li>
-        <router-link to="/signup">Signup</router-link>
+        <router-link to="/signup"><button>Signup</button></router-link>
       </li>
       <li>
-        <router-link to="/signin">Signin</router-link>
+        <router-link to="/signin"><button>Signin</button></router-link>
       </li>
       <li>
-        <router-link to="/liste">User list</router-link>
+        <router-link to="/liste"><button>User list</button></router-link>
       </li>
       <li>
         <a

@@ -6,6 +6,9 @@ import signup from '@/components/signup'
 import signin from '@/components/signin'
 import liste from '@/components/liste'
 import messages from '@/components/messages'
+import profile from '@/components/profile'
+import turlututu from '@/components/turlututu'
+import users from '@/components/users'
 
 Vue.use(Router)
 

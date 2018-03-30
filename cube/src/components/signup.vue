@@ -10,10 +10,10 @@
          <button type="submit" name="Signup" class="btn btn-block" @click="addToDb" id="signup">Submit</button></br> 
          <ul>
        <li>
-        <router-link to="/signin">Signin</router-link>
+        <router-link to="/signin"><button>Signin</button></router-link>
       </li>
       <li>
-        <router-link to="/liste">User list</router-link>     
+        <router-link to="/liste"><button>User list</button> </router-link>     
       </li>
       </ul> 
    </div>

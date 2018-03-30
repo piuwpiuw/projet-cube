@@ -5,6 +5,7 @@ import App from './App'
 // import VueResource from 'vue-resource'
 import router from './router'
 import axios from 'axios'
+import '@/assets/css/style.css'
 Vue.config.productionTip = false
 /*import axios from 'axios'
 import VueAxios from 'vue-axios'
