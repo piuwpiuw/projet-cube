@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 import bodyParser from 'body-parser';
 import User from './routes/user.route';
+import Message from './routes/message.route';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 
 app.use('/user', User);
+app.use('/message', Message);
 
 app.get('/', function (req, res) {
     res.write(timestamp(" Hello KouGou"));

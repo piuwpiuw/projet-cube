@@ -3,7 +3,9 @@ const router = express.Router();
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import User from '../models/user.model';
+import Message from '../models/message.model';
 import jwt from 'jsonwebtoken';
+
 
 let db = mongoose.connect('mongodb://localhost:27017/jwtauth');
 
@@ -16,27 +18,27 @@ router.post('/signup', function (req, res) {
             });
         } else {
             User.findOne({ email: req.body.email })
-        .exec()
-        .then(function (user){
-                if (user) {
-                    return res.status(501).json({
-                        err: 'User already exists !'
-                    });
-                }
-                else {
-                    const user = new User({
-                        _id: new mongoose.Types.ObjectId(),
-                        email: req.body.email,
-                        password: hash
-                    });
-                    user.save().then(function (result) {
-                        console.log(result);
-                        res.status(200).json({
-                            success: 'New user has been created !'
+                .exec()
+                .then(function (user) {
+                    if (user) {
+                        return res.status(409).json({
+                            err: 'User with this email adress already exists !'
                         });
-                    });
-                }
-            });
+                    }
+                    else {
+                        const user = new User({
+                            _id: new mongoose.Types.ObjectId(),
+                            email: req.body.email,
+                            password: hash
+                        });
+                        user.save().then(function (result) {
+                            console.log(result);
+                            res.status(200).json({
+                                success: 'New user has been created !'
+                            });
+                        });
+                    }
+                });
         }
     },
     )
